@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+    <script src="./../../dist/mempool.js"></script>
+    <script>
+      const init = async () => {
+        const { mempool: mp } = mempool.default();
+
+        const getMempool = await mp.getMempool();
+        console.log(getMempool);
+
+        const getMempoolRecent = await mp.getMempoolRecent();
+        console.log(getMempoolRecent);
+
+        const getMempoolTxids = await mp.getMempoolTxids();
+        console.log(getMempoolTxids);
+      };
+      init();
+    </script>
+  </head>
+  <body></body>
+</html>

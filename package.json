@@ -1,19 +1,19 @@
 {
-  "name": "mempool-space-js",
-  "version": "1.1.2",
+  "name": "mempool-js",
+  "version": "2.0.0",
   "description": "NPM Package for Mempool.Space API.",
   "main": "lib/index.js",
   "author": "MiguelMedeiros\\Miguel Medeiros <miguel@miguelmedeiros.com.br>",
   "email": "miguel@miguelmedeiros.com.br",
-  "url": "http://miguelmedeiros.com.br",
+  "url": "https://mempool.space/",
   "private": false,
   "license": "MIT",
-  "repository": "github:MiguelMedeiros/mempool-space-js",
+  "repository": "github:mempool/mempool-js",
   "types": "lib/index.d.ts",
   "scripts": {
     "start": "ts-node src/index.ts",
     "dev": "nodemon src/index.ts",
-    "build": "tsc",
+    "build": "tsc | browserify lib/index.js --standalone mempool > dist/mempool.js | browserify -p tinyify lib/index.js -o dist/mempool.min.js ",
     "prepare": "npm run build",
     "postversion": "git push && git push --tags"
   },
@@ -26,18 +26,23 @@
     "mempool",
     "blockchain",
     "typescript",
-    "axios"
+    "axios",
+    "nodejs",
+    "html"
   ],
   "dependencies": {
     "axios": "^0.21.1",
-    "typescript": "^4.1.3",
     "ws": "^7.4.3"
   },
   "devDependencies": {
     "@types/node": "^14.14.25",
+    "@types/websocket": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
+    "browserify": "^17.0.0",
     "eslint": "^7.19.0",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "tinyify": "^3.0.0",
+    "typescript": "^4.1.3"
   }
 }

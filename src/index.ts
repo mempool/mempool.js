@@ -1,22 +1,27 @@
-import fees from './fees';
-import mempool from './mempool';
-import blocks from './blocks';
-import transactions from './transactions';
-import addresses from './addresses';
-import websocket from './websocket';
+import { MempoolConfig, MempoolReturn } from './interfaces';
+import { makeAPI } from './api';
 
-export { default as fees } from './fees';
-export { default as mempool } from './mempool';
-export { default as blocks } from './blocks';
-export { default as transactions } from './transactions';
-export { default as addresses } from './addresses';
-export { default as websocket } from './websocket';
+import { useAddresses } from './app/addresses';
+import { useBlocks } from './app/blocks';
+import { useFees } from './app/fees';
+import { useMempool } from './app/mempool';
+import { useTransactions } from './app/transactions';
+import { useWebsocket } from './app/websocket';
 
-export default {
-  fees,
-  mempool,
-  blocks,
-  transactions,
-  addresses,
-  websocket,
+export default (
+  { apiEndpoint, websocketEndpoint }: MempoolConfig = {
+    apiEndpoint: 'https://mempool.space/api/',
+    websocketEndpoint: 'wss://mempool.space/api/v1/ws',
+  }
+): MempoolReturn => {
+  const { api } = makeAPI({ apiEndpoint });
+
+  return {
+    addresses: useAddresses(api),
+    blocks: useBlocks(api),
+    fees: useFees(api),
+    mempool: useMempool(api),
+    transactions: useTransactions(api),
+    websocket: useWebsocket({ websocketEndpoint }),
+  };
 };

@@ -1,14 +1,16 @@
-import { websocket } from '../src/index';
+import mempool from '../../src/index';
 
 const init = async () => {
-  const ws = await websocket.init({
+  const { websocket } = mempool();
+
+  const ws = websocket.init({
     options: ['blocks', 'stats', 'mempool-blocks', 'live-2h-chart'],
   });
 
-  ws.on('message', function incoming(data: any) {
+  ws.on('message', function incoming(data) {
     const res = JSON.parse(data);
     if (res.blocks) {
-      res.blocks.forEach((block: any) => {
+      res.blocks.forEach((block: { height }) => {
         console.log(block.height);
       });
     }

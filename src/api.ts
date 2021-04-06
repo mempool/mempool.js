@@ -1,4 +1,13 @@
-import axios from 'axios';
-export default axios.create({
-  baseURL: 'https://mempool.space/api/',
-});
+import axios, { AxiosInstance } from 'axios';
+import { APIConfig } from './interfaces';
+
+export const makeAPI = (
+  { apiEndpoint }: APIConfig = { apiEndpoint: 'https://mempool.space/api/' }
+): { api: AxiosInstance } => {
+  const api = axios.create({
+    baseURL: apiEndpoint,
+  });
+  return {
+    api,
+  };
+};
