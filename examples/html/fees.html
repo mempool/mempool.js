@@ -5,7 +5,7 @@
     <script src="./../../dist/mempool.js"></script>
     <script>
       const init = async () => {
-        const { fees } = mempool.default();
+        const { fees } = mempoolJS();
 
         const feesRecommended = await fees.getFeesRecommended();
         console.log(feesRecommended);

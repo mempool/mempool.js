@@ -1,3 +1,4 @@
+import WebSocketServer from 'ws';
 export interface Address {
   address: string;
   chain_stats: {
@@ -35,11 +36,6 @@ export interface AddressTxsUtxo {
   };
   value: number;
 }
-
-export interface APIConfig {
-  apiEndpoint?: string;
-}
-
 export interface Block {
   id: string;
   height: number;
@@ -207,14 +203,11 @@ export interface TxInstance {
   postTx: (txid: string) => Promise<unknown>;
 }
 
-export interface WSConfig {
-  websocketEndpoint?: string;
-}
-
 export interface WsInterface {
   options: string[];
 }
 
 export interface WsInstance {
-  init: ({ options }: WsInterface) => WebSocket | any;
+  initClient: ({ options }: WsInterface) => WebSocket;
+  initServer: ({ options }: WsInterface) => WebSocketServer;
 }

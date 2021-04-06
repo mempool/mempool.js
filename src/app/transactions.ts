@@ -9,51 +9,52 @@ import {
 
 export const useTransactions = (api: AxiosInstance): TxInstance => {
   const getTx = async (txid: string) => {
-    return api.get<Tx>(`/tx/${txid}`).then((res: { data: Tx }) => {
-      return res.data;
-    });
+    const { data } = await api.get<Tx>(`/tx/${txid}`);
+    return data;
   };
 
   const getTxStatus = async (txid: string) => {
-    return api.get<TxStatus>(`/tx/${txid}/status`).then(({ data }) => data);
+    const { data } = await api.get<TxStatus>(`/tx/${txid}/status`);
+    return data;
   };
 
   const getTxHex = async (txid: string) => {
-    return api.get<string>(`/tx/${txid}/hex`).then(({ data }) => data);
+    const { data } = await api.get<string>(`/tx/${txid}/hex`);
+    return data;
   };
 
   const getTxRaw = async (txid: string) => {
-    return api.get<string>(`/tx/${txid}/raw`).then(({ data }) => data);
+    const { data } = await api.get<string>(`/tx/${txid}/raw`);
+    return data;
   };
 
   const getTxMerkleBlockProof = async (txid: string) => {
-    return api
-      .get<string>(`/tx/${txid}/merkleblock-proof`)
-      .then(({ data }) => data);
+    const { data } = await api.get<string>(`/tx/${txid}/merkleblock-proof`);
+    return data;
   };
 
   const getTxMerkleProof = async (txid: string) => {
-    return api
-      .get<Array<TxMerkleProof>>(`/tx/${txid}/merkle-proof`)
-      .then(({ data }) => data);
+    const { data } = await api.get<Array<TxMerkleProof>>(
+      `/tx/${txid}/merkle-proof`
+    );
+    return data;
   };
 
   const getTxOutspend = async (params: { txid: string; vout: number }) => {
-    return api
-      .get<TxOutspend>(`/tx/${params.txid}/outspend/${params.vout}`)
-      .then(({ data }) => data);
+    const { data } = await api.get<TxOutspend>(
+      `/tx/${params.txid}/outspend/${params.vout}`
+    );
+    return data;
   };
 
   const getTxOutspends = async (txid: string) => {
-    return api
-      .get<Array<TxOutspend>>(`/tx/${txid}/outspends`)
-      .then(({ data }) => data);
+    const { data } = await api.get<Array<TxOutspend>>(`/tx/${txid}/outspends`);
+    return data;
   };
 
   const postTx = async (txid: string) => {
-    return api
-      .post<unknown>(`/tx`, { txid: txid })
-      .then(({ data }) => data);
+    const { data } = await api.post<string>(`/tx`, { txid: txid });
+    return data;
   };
 
   return {

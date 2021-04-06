@@ -12,21 +12,21 @@ export const useAddresses = (api: AxiosInstance): AddressInstance => {
     return data;
   };
 
-  const getAddressTxsChain = async (address: string): Promise<Tx[]> => {
+  const getAddressTxsChain = async (address: string) => {
     const { data } = await api.get<Tx[]>(`/address/${address}/txs/chain`);
     return data;
   };
 
   const getAddressTxsMempool = async (address: string) => {
-    return api
-      .get<Tx[]>(`/address/${address}/txs/mempool`)
-      .then(({ data }) => data);
+    const { data } = await api.get<Tx[]>(`/address/${address}/txs/mempool`);
+    return data;
   };
 
   const getAddressTxsUtxo = async (address: string) => {
-    return api
-      .get<AddressTxsUtxo[]>(`/address/${address}/utxo`)
-      .then(({ data }) => data);
+    const { data } = await api.get<AddressTxsUtxo[]>(
+      `/address/${address}/utxo`
+    );
+    return data;
   };
 
   return {

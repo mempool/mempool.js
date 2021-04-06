@@ -1,7 +1,7 @@
-import mempool from '../../src/index';
+import mempoolJS from '../../src/index';
 
 const init = async () => {
-  const { blocks } = mempool();
+  const { blocks } = mempoolJS();
 
   const hash =
     '000000000000000015dc777b3ff2611091336355d3f0ee9766a2cf3be8e4b1ce';

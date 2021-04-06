@@ -5,9 +5,9 @@
     <script src="./../../dist/mempool.js"></script>
     <script>
       const init = async () => {
-        const { websocket } = mempool.default();
+        const { websocket } = mempoolJS();
 
-        const ws = await websocket.init({
+        const ws = await websocket.initClient({
           options: ['blocks', 'stats', 'mempool-blocks', 'live-2h-chart'],
         });
 

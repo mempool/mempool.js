@@ -1,5 +1,5 @@
 import { MempoolConfig, MempoolReturn } from './interfaces';
-import { makeAPI } from './api';
+import { makeAPI } from './services/api';
 
 import { useAddresses } from './app/addresses';
 import { useBlocks } from './app/blocks';
@@ -8,13 +8,16 @@ import { useMempool } from './app/mempool';
 import { useTransactions } from './app/transactions';
 import { useWebsocket } from './app/websocket';
 
-export default (
+const apiEndpointDefault = 'https://mempool.space/api/';
+const websocketEndpointDefault = 'wss://mempool.space/api/v1/ws';
+
+const mempool = (
   { apiEndpoint, websocketEndpoint }: MempoolConfig = {
-    apiEndpoint: 'https://mempool.space/api/',
-    websocketEndpoint: 'wss://mempool.space/api/v1/ws',
+    apiEndpoint: apiEndpointDefault,
+    websocketEndpoint: websocketEndpointDefault,
   }
 ): MempoolReturn => {
-  const { api } = makeAPI({ apiEndpoint });
+  const { api } = makeAPI(apiEndpoint);
 
   return {
     addresses: useAddresses(api),
@@ -22,6 +25,9 @@ export default (
     fees: useFees(api),
     mempool: useMempool(api),
     transactions: useTransactions(api),
-    websocket: useWebsocket({ websocketEndpoint }),
+    websocket: useWebsocket(websocketEndpoint),
   };
 };
+
+mempool.default = mempool;
+export = mempool;

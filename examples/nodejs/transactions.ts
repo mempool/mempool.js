@@ -1,7 +1,7 @@
-import mempool from '../../src/index';
+import mempoolJS from '../../src/index';
 
 const init = async () => {
-  const { transactions } = mempool();
+  const { transactions } = mempoolJS();
 
   const txid =
     '15e10745f15593a899cef391191bdd3d7c12412cc4696b7bcb669d0feadc8521';

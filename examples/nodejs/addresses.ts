@@ -1,7 +1,7 @@
-import mempool from '../../src/index';
+import mempoolJS from '../../src/index';
 
 const init = async () => {
-  const { addresses } = mempool();
+  const { addresses } = mempoolJS();
 
   const address = '1wizSAYSbuyXbt9d8JV8ytm5acqq2TorC';
 
