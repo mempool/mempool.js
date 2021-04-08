@@ -54,7 +54,7 @@ export interface Block {
 
 export interface BlockInstance {
   getBlock: (hash: string) => Promise<Block>;
-  getBlocks: (params: { start_height?: number }) => Promise<Block>;
+  getBlocks: (params?: { start_height: number }) => Promise<Block>;
   getBlockStatus: (hash: string) => Promise<BlockStatus>;
   getBlockTxs: (params: { hash: string; start_index?: number }) => Promise<Tx>;
   getBlockTxids: (hash: string) => Promise<string[]>;
