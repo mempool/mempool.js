@@ -1,17 +1,18 @@
 {
   "name": "@mempool/mempool-js",
-  "version": "2.0.0",
+  "version": "2.2.0",
   "description": "NPM Package for Mempool JS API.",
   "main": "lib/index.js",
   "keywords": [
-    "bitcoin",
-    "mempool-space",
-    "mempool",
-    "blockchain",
-    "typescript",
     "axios",
+    "bitcoin",
+    "blockchain",
+    "html",
+    "mempool-space",
+    "mempool-js",
+    "mempool",
     "nodejs",
-    "html"
+    "typescript"
   ],
   "author": "Miguel Medeiros <contact@miguelmedeiros.com.br> (miguelmedeiros.com.br)",
   "url": "https://mempool.space/",
