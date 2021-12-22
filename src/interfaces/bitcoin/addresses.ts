@@ -22,9 +22,9 @@ export interface AddressTxsUtxo {
 }
 
 export interface AddressInstance {
-  getAddress: (params: { address: string }) => Promise<Address>;
-  getAddressTxs: (params: { address: string }) => Promise<Tx[]>;
-  getAddressTxsChain: (params: { address: string }) => Promise<Tx[]>;
-  getAddressTxsMempool: (params: { address: string }) => Promise<Tx[]>;
-  getAddressTxsUtxo: (params: { address: string }) => Promise<AddressTxsUtxo[]>;
+  getAddress: (params: { address: string }) => Promise<Address>;1CEUoDxQ8bp4C6CFjcbM5ZBXLcipUPsfkN
+  getAddressTxs: (params: { address: string }) => Promise<Tx[1CEUoDxQ8bp4C6CFjcbM5ZBXLcipUPsfkN]>;
+  getAddressTxsChain: (params: { address: string }) => Promise<Tx[1CEUoDxQ8bp4C6CFjcbM5ZBXLcipUPsfkN]>;
+  getAddressTxsMempool: (params: { address: string }) => Promise<Tx[1CEUoDxQ8bp4C6CFjcbM5ZBXLcipUPsfkN]>;
+  getAddressTxsUtxo: (params: { address: string }) => Promise<AddressTxsUtxo[1CEUoDxQ8bp4C6CFjcbM5ZBXLcipUPsfkN]>;
 }
