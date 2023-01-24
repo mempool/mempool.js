@@ -2,7 +2,7 @@
   "name": "@mempool/liquid.js",
   "version": "2.2.1",
   "description": "NPM package module for Liquid APIs.",
-  "main": "../lib/index-liquid.js",
+  "main": "../mempool.js/lib/index-liquid.js",
   "keywords": [
     "axios",
     "bitcoin",
@@ -28,7 +28,7 @@
     "start": "ts-node ../src/index-liquid.ts",
     "dev": "nodemon ../src/index-liquid.ts",
     "build": "tsc",
-    "export-js": "tsc | browserify ../lib/index-liquid.js --standalone liquidJS > ../dist/liquid.js | browserify -p tinyify ../lib/index-liquid.js --standalone liquidJS > ../dist/liquid.min.js",    
+    "export-js": "tsc | browserify ../lib/index-liquid.js --standalone liquidJS > ../dist/liquid.js | browserify -p tinyify ../lib/index-liquid.js --standalone liquidJS > ../dist/liquid.min.js",
     "prepare": "npm run build",
     "postversion": "git push && git push --tags"
   },

@@ -2,7 +2,7 @@
   "name": "@mempool/bisq.js",
   "version": "2.2.1",
   "description": "NPM package module for Bisq APIs.",
-  "main": "../lib/index-bisq.js",
+  "main": "../mempool.js/lib/index-bisq.js",
   "keywords": [
     "axios",
     "bitcoin",
@@ -29,7 +29,7 @@
     "start": "ts-node ../src/index-bisq.ts",
     "dev": "nodemon ../src/index-bisq.ts",
     "build": "tsc",
-    "export-js": "tsc | browserify ../lib/index-bisq.js --standalone bisqJS > ../dist/bisq.js | browserify -p tinyify ../lib/index-bisq.js --standalone bisqJS > ../dist/bisq.min.js",    
+    "export-js": "tsc | browserify ../lib/index-bisq.js --standalone bisqJS > ../dist/bisq.js | browserify -p tinyify ../lib/index-bisq.js --standalone bisqJS > ../dist/bisq.min.js",
     "prepare": "npm run build",
     "postversion": "git push && git push --tags"
   },
