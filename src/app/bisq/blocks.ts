@@ -8,7 +8,7 @@ export const useBlocks = (api: AxiosInstance): BlocksInstance => {
   };
 
   const getBlocks = async (params: { index: number; length: number }) => {
-    const { data } = await api.get<Block>(
+    const { data } = await api.get<Block[]>(
       `/blocks/${params.index}/${params.length}`
     );
     return data;
@@ -25,3 +25,4 @@ export const useBlocks = (api: AxiosInstance): BlocksInstance => {
     getBlocksTipHeight,
   };
 };
+

@@ -21,7 +21,7 @@ export const useBlocks = (api: AxiosInstance): BlockLiquidInstance => {
     hash: string;
     start_index?: number;
   }) => {
-    const { data } = await api.get<Tx>(
+    const { data } = await api.get<Tx[]>(
       `/block/${params.hash}/txs/${params.start_index}`
     );
     return data;
@@ -50,7 +50,7 @@ export const useBlocks = (api: AxiosInstance): BlockLiquidInstance => {
   };
 
   const getBlocks = async (params: { start_height?: number }) => {
-    const { data } = await api.get<Block>(`/blocks/${params.start_height}`);
+    const { data } = await api.get<Block[]>(`/blocks/${params.start_height}`);
     return data;
   };
 

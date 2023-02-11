@@ -10,9 +10,10 @@ export interface Block {
 
 export interface BlocksInstance {
   getBlock: (params: { hash: string }) => Promise<Block>;
-  getBlocks: (params: { index: number; length: number }) => Promise<Block>;
+  getBlocks: (params: { index: number; length: number }) => Promise<Block[]>;
   getBlocksTipHeight: (params: {
     index: number;
     length: number;
   }) => Promise<number>;
 }
+
