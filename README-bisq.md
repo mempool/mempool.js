@@ -145,3 +145,4 @@ const {
 const txs = await transactions.getTxs({ index: 0, length: 1 });
 console.log(txs);
 ```
+

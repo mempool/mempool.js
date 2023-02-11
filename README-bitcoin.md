@@ -14,10 +14,6 @@ Interface to access Bitcoin `mainet`, `testnet`, `signet` APIs.
   - [Get Address Txs Chain](#get-address-txs-chain)
   - [Get Address Txs Mempool](#get-address-txs-mempool)
   - [Get Address Txs Utxo](#get-address-txs-utxo)
-- Assets
-  - [Get Asset](#get-asset)
-  - [Get Asset Txs](#get-asset-txs)
-  - [Get Asset Supply](#get-asset-supply)
 - Blocks
   - [Get Block](#get-block)
   - [Get Block Status](#get-block-status)
@@ -427,7 +423,7 @@ Returns current mempool as projected blocks.
 [ [NodeJS Example](examples/nodejs/bitcoin/fees.ts) ] [ [HTML Example](examples/html/bitcoin/fees.html) ] [ [Top](#features) ]
 
 ```js
-  const { 
+  const {
     bitcoin: { fees },
   } = mempoolJS();
   const txid = 'txid';
@@ -690,11 +686,11 @@ Only use on server side apps.
 const { bitcoin: { websocket } } = mempoolJS();
 
 const init = async () => {
-  
+
   const ws = websocket.initServer({
     options: ["blocks", "stats", "mempool-blocks", "live-2h-chart"],
   });
-  
+
   ws.on("message", function incoming(data) {
     const res = JSON.parse(data.toString());
     if (res.block) {
@@ -723,7 +719,7 @@ const init = async () => {
   const {
     bitcoin: { websocket },
   } = mempoolJS();
-  
+
   const ws = websocket.initClient({
     options: ['blocks', 'stats', 'mempool-blocks', 'live-2h-chart'],
   });
