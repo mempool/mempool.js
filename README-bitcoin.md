@@ -59,7 +59,7 @@ Returns details about an address. Available fields: `address`, `chain_stats`, an
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/bitcoin/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -80,7 +80,7 @@ Get transaction history for the specified address/scripthash, sorted with newest
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/bitcoin/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -101,7 +101,7 @@ Get confirmed transaction history for the specified address/scripthash, sorted w
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/bitcoin/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -122,7 +122,7 @@ Get unconfirmed transaction history for the specified `address/scripthash`. Retu
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/bitcoin/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -143,7 +143,7 @@ Get the list of unspent transaction outputs associated with the `address/scripth
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/bitcoin/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const { addresses } = mempoolJS();
@@ -160,7 +160,7 @@ Returns details about a block. Available fields: `id`, `height`, `version`, `tim
 
 - {string} hash
 
-[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/bitcoin/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -181,7 +181,7 @@ Returns the confirmation status of a block. Available fields: `in_best_chain` (b
 
 - {string} hash
 
-[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/bitcoin/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -203,7 +203,7 @@ Returns a list of transactions in the block (up to 25 transactions beginning at 
 - {string} params.hash
 - {number} params.start_index
 
-[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/bitcoin/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -224,7 +224,7 @@ Returns a list of all txids in the block.
 
 - {string} hash
 
-[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/bitcoin/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -246,7 +246,7 @@ Returns the transaction at index :index within the specified block.
 - {string} params.hash
 - {number} params.index
 
-[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/bitcoin/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -267,7 +267,7 @@ Returns the raw block representation in binary.
 
 - {string} hash
 
-[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/bitcoin/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -288,14 +288,16 @@ Returns the hex-encoded block header.
 
 - {string} hash
 
-[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/bitcoin/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
   bitcoin: { blocks },
 } = mempoolJS();
 
-const blockHeader = await blocks.getBlockHeader({ hash: '0000000000000000000065bda8f8a88f2e1e00d9a6887a43d640e52a4c7660f2' });
+const blockHeader = await blocks.getBlockHeader({
+  hash: '0000000000000000000065bda8f8a88f2e1e00d9a6887a43d640e52a4c7660f2',
+});
 console.log(blockHeader);
 ```
 
@@ -307,7 +309,7 @@ Returns the hash of the block currently at `:height`.
 
 - {number} height
 
-[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/bitcoin/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -326,7 +328,7 @@ Returns the 10 newest blocks starting at the tip or at `:start_height` if specif
 
 - {number} params.start_height
 
-[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/bitcoin/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -345,7 +347,7 @@ Returns the 10 newest blocks starting at the tip or at `:start_height` if specif
 
 - {number} params.start_height
 
-[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/bitcoin/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -360,7 +362,7 @@ console.log(blocksTipHeight);
 
 Returns the hash of the last block.
 
-[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/bitcoin/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -375,7 +377,7 @@ console.log(blocksTipHash);
 
 Returns the hash of the last block.
 
-[ [NodeJS Example](examples/nodejs/bitcoin/difficulty.ts) ] [ [HTML Example](examples/html/bitcoin/difficulty.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/difficulty.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/difficulty.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -390,7 +392,7 @@ console.log(difficultyAdjustment);
 
 Returns our currently suggested fees for new transactions.
 
-[ [NodeJS Example](examples/nodejs/bitcoin/fees.ts) ] [ [HTML Example](examples/html/bitcoin/fees.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/fees.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/fees.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -405,7 +407,7 @@ console.log(feesRecommended);
 
 Returns current mempool as projected blocks.
 
-[ [NodeJS Example](examples/nodejs/bitcoin/fees.ts) ] [ [HTML Example](examples/html/bitcoin/fees.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/fees.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/fees.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -420,23 +422,23 @@ console.log(feesMempoolBlocks);
 
 Returns current mempool as projected blocks.
 
-[ [NodeJS Example](examples/nodejs/bitcoin/fees.ts) ] [ [HTML Example](examples/html/bitcoin/fees.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/fees.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/fees.html) ] [ [Top](#features) ]
 
 ```js
-  const {
-    bitcoin: { fees },
-  } = mempoolJS();
-  const txid = 'txid';
+const {
+  bitcoin: { fees },
+} = mempoolJS();
+const txid = 'txid';
 
-  const feesCPFP = await fees.getCPFP({ txid });
-  console.log(feesCPFP);
+const feesCPFP = await fees.getCPFP({ txid });
+console.log(feesCPFP);
 ```
 
 ### **Get Mempool**
 
 Returns current mempool backlog statistics.
 
-[ [NodeJS Example](examples/nodejs/bitcoin/mempool.ts) ] [ [HTML Example](examples/html/bitcoin/mempool.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/mempool.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/mempool.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -451,7 +453,7 @@ console.log(getMempool);
 
 Get a list of the last 10 transactions to enter the mempool. Each transaction object contains simplified overview data, with the following fields: `txid`, `fee`, `vsize`, and `value`.
 
-[ [NodeJS Example](examples/nodejs/bitcoin/mempool.ts) ] [ [HTML Example](examples/html/bitcoin/mempool.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/mempool.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/mempool.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -466,7 +468,7 @@ console.log(getMempoolRecent);
 
 Get the full list of txids in the mempool as an array. The order of the `txids` is arbitrary and does not match bitcoind.
 
-[ [NodeJS Example](examples/nodejs/bitcoin/mempool.ts) ] [ [HTML Example](examples/html/bitcoin/mempool.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/mempool.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/mempool.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -485,7 +487,7 @@ Returns details about a transaction. Available fields: `txid`, `version`, `lockt
 
 - {string} txid
 
-[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/bitcoin/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -506,7 +508,7 @@ Returns the confirmation status of a transaction. Available fields: `confirmed` 
 
 - {string} txid
 
-[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/bitcoin/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -527,7 +529,7 @@ Returns a transaction serialized as hex.
 
 - {string} txid
 
-[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/bitcoin/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -548,7 +550,7 @@ Returns a transaction as binary data.
 
 - {string} txid
 
-[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/bitcoin/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -569,7 +571,7 @@ Returns a merkle inclusion proof for the transaction using bitcoind's merklebloc
 
 - {string} txid
 
-[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/bitcoin/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -590,7 +592,7 @@ Returns a merkle inclusion proof for the transaction using Electrum's blockchain
 
 - {string} txid
 
-[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/bitcoin/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -612,7 +614,7 @@ Returns the spending status of a transaction output. Available fields: `spent` (
 - {string} params.txid
 - {number} params.vout
 
-[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/bitcoin/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -636,7 +638,7 @@ Returns the spending status of all transaction outputs.
 
 - {string} txid
 
-[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/bitcoin/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -657,14 +659,15 @@ Broadcast a raw transaction to the network. The transaction should be provided a
 
 - {string} txhex
 
-[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/bitcoin/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
   bitcoin: { transactions },
 } = mempoolJS();
 
-const txhex = '15e10745f15593a899cef391191bdd3d7c12412cc4696b7bcb669d0feadc8521';
+const txhex =
+  '15e10745f15593a899cef391191bdd3d7c12412cc4696b7bcb669d0feadc8521';
 
 const postTx = await transactions.postTx({ txhex });
 console.log(postTx);
@@ -676,22 +679,23 @@ Default push: `{ action: 'want', data: ['blocks', ...] }` to express what you wa
 
 Push transactions related to address: `{ 'track-address': '3PbJ...bF9B' }` to receive all new transactions containing that address as input or output. Returns an array of transactions. address-transactions for new mempool transactions, and block-transactions for new block confirmed transactions.
 
-[ [NodeJS Example](examples/nodejs/bitcoin/websocket.ts) ] [ [HTML Example](examples/html/bitcoin/websocket.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/websocket.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/websocket.html) ] [ [Top](#features) ]
 
 #### **Websocket Server**
 
 Only use on server side apps.
 
 ```js
-const { bitcoin: { websocket } } = mempoolJS();
+const {
+  bitcoin: { websocket },
+} = mempoolJS();
 
 const init = async () => {
-
   const ws = websocket.initServer({
-    options: ["blocks", "stats", "mempool-blocks", "live-2h-chart"],
+    options: ['blocks', 'stats', 'mempool-blocks', 'live-2h-chart'],
   });
 
-  ws.on("message", function incoming(data) {
+  ws.on('message', function incoming(data) {
     const res = JSON.parse(data.toString());
     if (res.block) {
       console.log(res.block);
@@ -706,7 +710,7 @@ const init = async () => {
       console.log(res.mempoolBlocks);
     }
   });
-}
+};
 init();
 ```
 
@@ -724,7 +728,7 @@ const init = async () => {
     options: ['blocks', 'stats', 'mempool-blocks', 'live-2h-chart'],
   });
 
-  ws.addEventListener('message', function incoming({data}) {
+  ws.addEventListener('message', function incoming({ data }) {
     const res = JSON.parse(data.toString());
     if (res.block) {
       console.log(res.block);
