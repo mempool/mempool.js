@@ -4,16 +4,18 @@ import { MempoolConfig } from './../../interfaces/index';
 export const makeBitcoinAPI = ({
   hostname,
   network,
+  axiosConfig,
 }: MempoolConfig): { api: AxiosInstance } => {
   if (network && ['testnet', 'signet'].includes(network)) {
     network = `/${network}`;
   } else {
     network = '';
   }
-  
+
   if(hostname?.includes("localhost")){
     const api = axios.create({
       baseURL: `http://${hostname}${network}/api/`,
+      ...(axiosConfig ?? {}),
     });
     return {
       api,
@@ -22,6 +24,7 @@ export const makeBitcoinAPI = ({
 
   const api = axios.create({
     baseURL: `https://${hostname}${network}/api/`,
+      ...(axiosConfig ?? {}),
   });
   return {
     api,
@@ -38,7 +41,7 @@ export const makeBisqAPI = (hostname?: string): { api: AxiosInstance } => {
       api,
     };
   }
-  
+
   const api = axios.create({
     baseURL: `https://${hostname}/bisq/api/`,
   });
@@ -57,7 +60,7 @@ export const makeBisqMarketsAPI = (): { api: AxiosInstance } => {
 };
 
 export const makeLiquidAPI = (hostname?: string): { api: AxiosInstance } => {
-  
+
   if(hostname?.includes("localhost")){
     const api = axios.create({
       baseURL: `http://${hostname}/liquid/api/`,
