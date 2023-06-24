@@ -3,7 +3,7 @@ import {
   makeBitcoinAPI,
   makeBisqAPI,
   makeLiquidAPI,
-  makeBisqMarketsAPI
+  makeBisqMarketsAPI,
 } from './services/api/index';
 
 import { useAddresses } from './app/bitcoin/addresses';
@@ -32,7 +32,7 @@ const hostnameEndpointDefault = 'mempool.space';
 const networkEndpointDefault = 'main';
 
 const mempool = (
-  { hostname, network }: MempoolConfig = {
+  { hostname, network, protocol }: MempoolConfig = {
     hostname: hostnameEndpointDefault,
     network: networkEndpointDefault,
   }
@@ -40,10 +40,10 @@ const mempool = (
   if (!hostname) hostname = hostnameEndpointDefault;
   if (!network) network = networkEndpointDefault;
 
-  const { api: apiBitcoin } = makeBitcoinAPI({ hostname, network });
-  const { api: apiBisq } = makeBisqAPI(hostname);
+  const { api: apiBitcoin } = makeBitcoinAPI({ hostname, network, protocol });
+  const { api: apiBisq } = makeBisqAPI(hostname, protocol);
   const { api: apiBisqMarkets } = makeBisqMarketsAPI();
-  const { api: apiLiquid } = makeLiquidAPI(hostname);
+  const { api: apiLiquid } = makeLiquidAPI(hostname, protocol);
   return {
     bitcoin: {
       addresses: useAddresses(apiBitcoin),
