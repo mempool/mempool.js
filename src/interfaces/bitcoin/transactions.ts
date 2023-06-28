@@ -52,7 +52,7 @@ export interface TxInstance {
   getTxHex: (params: { txid: string }) => Promise<string>;
   getTxRaw: (params: { txid: string }) => Promise<string>;
   getTxMerkleBlockProof: (params: { txid: string }) => Promise<string>;
-  getTxMerkleProof: (params: { txid: string }) => Promise<Array<TxMerkleProof>>;
+  getTxMerkleProof: (params: { txid: string }) => Promise<TxMerkleProof>;
   getTxOutspend: (params: {
     txid: string;
     vout: number;
