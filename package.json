@@ -1,6 +1,6 @@
 {
   "name": "@0xflick/mempool.js",
-  "version": "2.3.1-alpha.1",
+  "version": "2.3.3",
   "description": "NPM package module for Mempool APIs.",
   "main": "lib/index.js",
   "keywords": [
@@ -25,7 +25,7 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git://github.com/mempool/mempool.js.git"
+    "url": "git://github.com/0xflick/mempool.js.git"
   },
   "types": "lib/index.d.ts",
   "scripts": {

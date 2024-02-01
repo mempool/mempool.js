@@ -1,26 +1,34 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import axios, { AxiosInstance } from 'axios';
+import { MempoolConfig } from '../../interfaces';
 
-export const makeBitcoinAPI = (
-  config?: AxiosRequestConfig
-): { api: AxiosInstance } => {
-  const api = axios.create(config);
+export const makeBitcoinAPI = ({
+  hostname,
+  network,
+  protocol,
+  config,
+}: MempoolConfig): { api: AxiosInstance } => {
+  protocol = protocol ?? hostname?.includes('localhost') ? 'http' : 'https';
+  if (network && ['testnet', 'signet'].includes(network)) {
+    network = `/${network}`;
+  } else {
+    network = '';
+  }
+  const api = axios.create({
+    baseURL: `${protocol}://${hostname}${network}/api/`,
+    ...config,
+  });
   return {
     api,
   };
 };
 
-export const makeBisqAPI = (hostname?: string): { api: AxiosInstance } => {
-  if (hostname?.includes('localhost')) {
-    const api = axios.create({
-      baseURL: `http://${hostname}/bisq/api/`,
-    });
-    return {
-      api,
-    };
-  }
-
+export const makeBisqAPI = (
+  hostname?: string,
+  protocol?: 'https' | 'http'
+): { api: AxiosInstance } => {
+  protocol = protocol ?? hostname?.includes('localhost') ? 'http' : 'https';
   const api = axios.create({
-    baseURL: `https://${hostname}/bisq/api/`,
+    baseURL: `${protocol}://${hostname}/bisq/api/`,
   });
   return {
     api,
@@ -36,18 +44,14 @@ export const makeBisqMarketsAPI = (): { api: AxiosInstance } => {
   };
 };
 
-export const makeLiquidAPI = (hostname?: string): { api: AxiosInstance } => {
-  if (hostname?.includes('localhost')) {
-    const api = axios.create({
-      baseURL: `http://${hostname}/liquid/api/`,
-    });
-    return {
-      api,
-    };
-  }
+export const makeLiquidAPI = (
+  hostname?: string,
+  protocol?: 'https' | 'http'
+): { api: AxiosInstance } => {
+  protocol = protocol ?? hostname?.includes('localhost') ? 'http' : 'https';
 
   const api = axios.create({
-    baseURL: `https://${hostname}/liquid/api/`,
+    baseURL: `${protocol}://${hostname}/liquid/api/`,
   });
   return {
     api,

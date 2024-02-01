@@ -37,6 +37,7 @@ const { bitcoin, bisq, liquid } = mempoolJS();
 
 // (optional) your custom endpoints
 const { bitcoin, bisq, liquid } = mempoolJS({
+  protocol: 'https', // optional, defaults to http for localhost, otherwise https
   hostname: 'mempool.space', 
   network: 'testnet' // 'signet' | 'testnet' | 'mainnet'
 });
