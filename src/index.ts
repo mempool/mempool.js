@@ -3,7 +3,7 @@ import {
   makeBitcoinAPI,
   makeBisqAPI,
   makeLiquidAPI,
-  makeBisqMarketsAPI
+  makeBisqMarketsAPI,
 } from './services/api/index';
 
 import { useAddresses } from './app/bitcoin/addresses';
@@ -27,12 +27,17 @@ import { useFees as useFeesLiquid } from './app/liquid/fees';
 import { useMempool as useMempoolLiquid } from './app/liquid/mempool';
 import { useTransactions as useTransactionsLiquid } from './app/liquid/transactions';
 import { useWebsocket as useWebsocketLiquid } from './app/liquid/websocket';
+import { AxiosRequestConfig } from 'axios';
 
 const hostnameEndpointDefault = 'mempool.space';
 const networkEndpointDefault = 'main';
 
 const mempool = (
-  { hostname, network }: MempoolConfig = {
+  {
+    hostname,
+    network,
+    config,
+  }: MempoolConfig & { config?: AxiosRequestConfig } = {
     hostname: hostnameEndpointDefault,
     network: networkEndpointDefault,
   }
@@ -40,7 +45,7 @@ const mempool = (
   if (!hostname) hostname = hostnameEndpointDefault;
   if (!network) network = networkEndpointDefault;
 
-  const { api: apiBitcoin } = makeBitcoinAPI({ hostname, network });
+  const { api: apiBitcoin } = makeBitcoinAPI(config);
   const { api: apiBisq } = makeBisqAPI(hostname);
   const { api: apiBisqMarkets } = makeBisqMarketsAPI();
   const { api: apiLiquid } = makeLiquidAPI(hostname);
