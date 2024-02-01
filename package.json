@@ -1,6 +1,6 @@
 {
   "name": "@0xflick/mempool.js",
-  "version": "2.3.1-alpha",
+  "version": "2.3.1-alpha.1",
   "description": "NPM package module for Mempool APIs.",
   "main": "lib/index.js",
   "keywords": [
