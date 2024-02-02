@@ -57,7 +57,7 @@ export const useTransactions = (api: AxiosInstance): TxInstance => {
   };
 
   const postTx = async (params: { txhex: string }) => {
-    const { data } = await api.post<string>(`/tx/push`, params.txhex);
+    const { data } = await api.post<string>(`/tx`, params.txhex);
     return data;
   };
 
@@ -73,4 +73,3 @@ export const useTransactions = (api: AxiosInstance): TxInstance => {
     postTx,
   };
 };
-
