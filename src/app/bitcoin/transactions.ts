@@ -57,11 +57,7 @@ export const useTransactions = (api: AxiosInstance): TxInstance => {
   };
 
   const postTx = async (params: { txhex: string }) => {
-    const { data } = await api.post<string>(`/tx`, params.txhex, {
-      headers: {
-        'Content-Type': 'text/plain',
-      },
-    });
+    const { data } = await api.post<string>(`/tx`, { txhex: params.txhex });
     return data;
   };
 
