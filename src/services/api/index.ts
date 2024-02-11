@@ -22,13 +22,27 @@ export const makeBitcoinAPI = ({
   };
 };
 
-export const makeBisqAPI = (
-  hostname?: string,
-  protocol?: 'https' | 'http'
-): { api: AxiosInstance } => {
+export const makeBisqAPI = ({
+  hostname,
+  network,
+  protocol,
+  config,
+}: MempoolConfig): { api: AxiosInstance } => {
   protocol = protocol ?? hostname?.includes('localhost') ? 'http' : 'https';
+  if (network && ['testnet', 'signet'].includes(network)) {
+    network = `/${network}`;
+  } else {
+    network = '';
+  }
+  protocol = protocol ?? hostname?.includes('localhost') ? 'http' : 'https';
+  if (network && ['testnet', 'signet'].includes(network)) {
+    network = `/${network}`;
+  } else {
+    network = '';
+  }
   const api = axios.create({
     baseURL: `${protocol}://${hostname}/bisq/api/`,
+    ...config,
   });
   return {
     api,
@@ -44,14 +58,28 @@ export const makeBisqMarketsAPI = (): { api: AxiosInstance } => {
   };
 };
 
-export const makeLiquidAPI = (
-  hostname?: string,
-  protocol?: 'https' | 'http'
-): { api: AxiosInstance } => {
+export const makeLiquidAPI = ({
+  hostname,
+  network,
+  protocol,
+  config,
+}: MempoolConfig): { api: AxiosInstance } => {
   protocol = protocol ?? hostname?.includes('localhost') ? 'http' : 'https';
+  if (network && ['testnet', 'signet'].includes(network)) {
+    network = `/${network}`;
+  } else {
+    network = '';
+  }
+  protocol = protocol ?? hostname?.includes('localhost') ? 'http' : 'https';
+  if (network && ['testnet', 'signet'].includes(network)) {
+    network = `/${network}`;
+  } else {
+    network = '';
+  }
 
   const api = axios.create({
     baseURL: `${protocol}://${hostname}/liquid/api/`,
+    ...config,
   });
   return {
     api,

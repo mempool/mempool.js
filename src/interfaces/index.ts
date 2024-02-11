@@ -19,7 +19,7 @@ export interface MempoolConfig {
   protocol?: 'http' | 'https';
   hostname?: string;
   network?: string;
-  config?: AxiosRequestConfig
+  config?: AxiosRequestConfig;
 }
 
 export interface MempoolReturn {
