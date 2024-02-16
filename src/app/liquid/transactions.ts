@@ -36,7 +36,7 @@ export const useTransactions = (api: AxiosInstance): TxInstance => {
   };
 
   const getTxMerkleProof = async (params: { txid: string }) => {
-    const { data } = await api.get<Array<TxMerkleProof>>(
+    const { data } = await api.get<TxMerkleProof>(
       `/tx/${params.txid}/merkle-proof`
     );
     return data;
