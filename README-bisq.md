@@ -25,7 +25,7 @@ Interface to access Bisq API.
 
 Returns statistics about all Bisq transactions.
 
-[ [NodeJS Example](examples/nodejs/bisq/addresses.ts) ] [ [HTML Example](examples/html/bisq/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/mempool-js/bisq/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bisq/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -46,7 +46,7 @@ Returns all Bisq transactions that exist in a Bitcoin block.
 
 - {string} hash
 
-[ [NodeJS Example](examples/nodejs/bisq/blocks.ts) ] [ [HTML Example](examples/html/bisq/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/mempool-js/bisq/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/bisq/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -68,7 +68,7 @@ Returns `:length` Bitcoin blocks that contain Bisq transactions, starting from `
 - {number} index
 - {number} length
 
-[ [NodeJS Example](examples/nodejs/bisq/blocks.ts) ] [ [HTML Example](examples/html/bisq/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/mempool-js/bisq/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/bisq/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -85,7 +85,7 @@ console.log(myBlocks);
 
 Returns the most recently processed Bitcoin block height processed by Bisq.
 
-[ [NodeJS Example](examples/nodejs/bisq/blocks.ts) ] [ [HTML Example](examples/html/bisq/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/mempool-js/bisq/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/bisq/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -103,7 +103,7 @@ console.log(myBlocksHeight);
 
 Returns statistics about all Bisq transactions.
 
-[ [NodeJS Example](examples/nodejs/bisq/statistics.ts) ] [ [HTML Example](examples/html/bisq/statistics.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/mempool-js/bisq/statistics.ts) ] [ [HTML Example](examples/html/mempool-js/bisq/statistics.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -118,7 +118,7 @@ console.log(stats);
 
 Returns details about a Bisq transaction.
 
-[ [NodeJS Example](examples/nodejs/bisq/transactions.ts) ] [ [HTML Example](examples/html/bisq/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/mempool-js/bisq/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/bisq/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -135,7 +135,7 @@ console.log(tx);
 
 Returns details about a Bisq transactions.
 
-[ [NodeJS Example](examples/nodejs/bisq/transactions.ts) ] [ [HTML Example](examples/html/bisq/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/mempool-js/bisq/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/bisq/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
