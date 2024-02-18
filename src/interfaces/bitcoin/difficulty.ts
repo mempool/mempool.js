@@ -13,11 +13,24 @@ export interface Adjustment {
 }
 
 export interface Hashrate {
-  hashrates: any[],
-  difficulty: any[],
+  hashrates: HashRateData[],
+  difficulty: DifficultyData[],
   currentHashrate: number,
   currentDifficulty: number,
 }
+
+export interface HashRateData {
+  timestamp: number,
+  avgHashrate: number
+}
+
+export interface DifficultyData {
+  time: number,
+  height: number,
+  difficulty: number,
+  adjustment: number
+}
+
 export interface DifficultyInstance {
   getDifficultyAdjustment: () => Promise<Adjustment>;
   getHashrate: (params: { interval: string }) => Promise<Hashrate>;

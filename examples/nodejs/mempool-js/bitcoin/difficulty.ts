@@ -9,7 +9,7 @@ const init = async () => {
     const difficultyAdjustment = await difficulty.getDifficultyAdjustment();
     console.log(difficultyAdjustment);
 
-    const hashrate = await difficulty.getHashrate({ interval: "24h" });
+    const hashrate = await difficulty.getHashrate({ interval: "1m" });
     console.log(hashrate);
   } catch (error) {
     console.log(error);
