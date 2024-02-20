@@ -8,7 +8,8 @@ import { TxInstance } from './bitcoin/transactions';
 import { WsInstance } from './bitcoin/websockets';
 
 import { AssetsInstance } from './liquid/assets';
-import { BlockLiquidInstance } from './liquid/block';
+import { BlockLiquidInstance } from './liquid/blocks';
+import { TxLiquidInstance } from './liquid/transactions';
 export interface MempoolConfig {
   hostname?: string;
   network?: string;
@@ -31,7 +32,7 @@ export interface MempoolReturn {
     blocks: BlockLiquidInstance;
     fees: FeeInstance;
     mempool: MempoolInstance;
-    transactions: TxInstance;
+    transactions: TxLiquidInstance;
     websocket: WsInstance;
   };
 }

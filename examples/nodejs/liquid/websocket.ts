@@ -1,6 +1,6 @@
 import mempoolJS from "./../../../src/index";
 
-const { liquid: { websocket } } = mempoolJS();
+const { liquid: { websocket } } = mempoolJS( { hostname: 'liquid.network' } );
 
 const init = async () => {
   try {

@@ -4,7 +4,7 @@ const init = async () => {
   try {
     const {
       liquid: { addresses },
-    } = mempoolJS();
+    } = mempoolJS( { hostname: 'liquid.network' } );
     
     const address = 'Go65t19hP2FuhBMYtgbdMDgdmEzNwh1i48';
     

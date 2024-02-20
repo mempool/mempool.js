@@ -8,7 +8,7 @@
         try {
           const {
             liquid: { websocket },
-          } = mempoolJS();
+          } = mempoolJS( { hostname: 'liquid.network' } );
           
           const ws = websocket.initClient({
             options: ['blocks', 'stats', 'mempool-blocks', 'live-2h-chart'],

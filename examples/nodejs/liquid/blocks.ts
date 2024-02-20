@@ -4,10 +4,10 @@ const init = async () => {
   try {
     const {
       liquid: { blocks },
-    } = mempoolJS();
+    } = mempoolJS( { hostname: 'liquid.network' } );
     
     const hash =
-    '000000000000000015dc777b3ff2611091336355d3f0ee9766a2cf3be8e4b1ce';
+    '5ec96b63f95aad27391a8a41f1dce2161d48c4f26aeb1f72695a12c98a005e1f';
     
     const block = await blocks.getBlock({ hash });
     console.log(block);
@@ -21,7 +21,7 @@ const init = async () => {
     const blockTxids = await blocks.getBlockTxids({ hash });
     console.log(blockTxids);
     
-    const blockTxid = await blocks.getBlockTxid({ hash, index: 218 });
+    const blockTxid = await blocks.getBlockTxid({ hash, index: 1 });
     console.log(blockTxid);
     
     const blockRaw = await blocks.getBlockRaw({ hash });

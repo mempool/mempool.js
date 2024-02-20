@@ -4,7 +4,7 @@ const init = async () => {
   try {    
     const {
       liquid: { fees },
-    } = mempoolJS();
+    } = mempoolJS( { hostname: 'liquid.network' } );
     
     const feesRecommended = await fees.getFeesRecommended();
     console.log(feesRecommended);

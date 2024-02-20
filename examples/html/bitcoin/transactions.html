@@ -42,8 +42,8 @@
           const txOutspends = await transactions.getTxOutspends({ txid });
           console.log(txOutspends);
           
-          // const postTx = await transactions.postTx({ txhex });
-          // console.log(postTx);
+          const postTx = await transactions.postTx({ txhex: txHex });
+          console.log(postTx);
         } catch (error) {
           console.log(error);
         }

@@ -8,7 +8,7 @@
         try {          
           const {
             liquid: { blocks },
-          } = mempoolJS();
+          } = mempoolJS( { hostname: 'liquid.network' } );
           
           const hash =
           '54f02bdec5509ea769c8be82aed51f689969b653d92a2812d5a36266cbfbc55e';

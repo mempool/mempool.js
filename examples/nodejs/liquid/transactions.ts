@@ -4,10 +4,10 @@ const init = async () => {
   try {
     const {
       liquid: { transactions },
-    } = mempoolJS();
+    } = mempoolJS( { hostname: 'liquid.network' } );
     
     const txid =
-    '15e10745f15593a899cef391191bdd3d7c12412cc4696b7bcb669d0feadc8521';
+    '555fbc3ca784903b238fdadc92515577dfa9124185259c5d9a773508bbc365e5';
     
     const tx = await transactions.getTx({ txid });
     console.log(tx);
@@ -20,10 +20,7 @@ const init = async () => {
     
     const txRaw = await transactions.getTxRaw({ txid });
     console.log(txRaw);
-    
-    const txMerkleBlockProof = await transactions.getTxMerkleBlockProof({ txid });
-    console.log(txMerkleBlockProof);
-    
+        
     const txMerkleProof = await transactions.getTxMerkleProof({ txid });
     console.log(txMerkleProof);
     
@@ -36,8 +33,8 @@ const init = async () => {
     const txOutspends = await transactions.getTxOutspends({ txid });
     console.log(txOutspends);
     
-    // const postTx = await transactions.postTx({ txhex });
-    // console.log(postTx);
+    const postTx = await transactions.postTx({ txhex: txHex });
+    console.log(postTx);
   } catch (error) {
     console.log(error);
   }
