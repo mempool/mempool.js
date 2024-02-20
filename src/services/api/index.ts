@@ -1,46 +1,46 @@
 import axios, { AxiosInstance } from 'axios';
-import { MempoolConfig } from './../../interfaces/index';
+import { MempoolConfig } from '../../interfaces';
 
 export const makeBitcoinAPI = ({
   hostname,
   network,
+  protocol,
+  config,
 }: MempoolConfig): { api: AxiosInstance } => {
+  if (!protocol) {
+    hostname?.includes('localhost') ? protocol = 'http' : protocol = 'https';
+  }
   if (network && ['testnet', 'signet'].includes(network)) {
     network = `/${network}`;
   } else {
     network = '';
   }
-  
-  if(hostname?.includes("localhost")){
-    const api = axios.create({
-      baseURL: `http://${hostname}${network}/api/`,
-    });
-    return {
-      api,
-    };
-  }
-
   const api = axios.create({
-    baseURL: `https://${hostname}${network}/api/`,
+    baseURL: `${protocol}://${hostname}${network}/api/`,
+    ...config,
   });
   return {
     api,
   };
 };
 
-export const makeLiquidAPI = (hostname?: string): { api: AxiosInstance } => {
-  
-  if(hostname?.includes("localhost")){
-    const api = axios.create({
-      baseURL: `http://${hostname}/liquid/api/`,
-    });
-    return {
-      api,
-    };
+export const makeLiquidAPI = ({
+  hostname,
+  network,
+  protocol,
+  config,
+}: MempoolConfig): { api: AxiosInstance } => {
+  if (!protocol) {
+    hostname?.includes('localhost') ? protocol = 'http' : protocol = 'https';
   }
-
+  if (network && ['testnet', 'signet'].includes(network)) {
+    network = `/${network}`;
+  } else {
+    network = '';
+  }
   const api = axios.create({
-    baseURL: `https://${hostname}/liquid/api/`,
+    baseURL: `${protocol}://${hostname}/liquid/api/`,
+    ...config,
   });
   return {
     api,
