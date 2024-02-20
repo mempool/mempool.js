@@ -7,7 +7,9 @@ export const makeBitcoinAPI = ({
   protocol,
   config,
 }: MempoolConfig): { api: AxiosInstance } => {
-  protocol = protocol ?? hostname?.includes('localhost') ? 'http' : 'https';
+  if (!protocol) {
+    hostname?.includes('localhost') ? protocol = 'http' : protocol = 'https';
+  }
   if (network && ['testnet', 'signet'].includes(network)) {
     network = `/${network}`;
   } else {
@@ -28,19 +30,14 @@ export const makeLiquidAPI = ({
   protocol,
   config,
 }: MempoolConfig): { api: AxiosInstance } => {
-  protocol = protocol ?? hostname?.includes('localhost') ? 'http' : 'https';
+  if (!protocol) {
+    hostname?.includes('localhost') ? protocol = 'http' : protocol = 'https';
+  }
   if (network && ['testnet', 'signet'].includes(network)) {
     network = `/${network}`;
   } else {
     network = '';
   }
-  protocol = protocol ?? hostname?.includes('localhost') ? 'http' : 'https';
-  if (network && ['testnet', 'signet'].includes(network)) {
-    network = `/${network}`;
-  } else {
-    network = '';
-  }
-
   const api = axios.create({
     baseURL: `${protocol}://${hostname}/liquid/api/`,
     ...config,
