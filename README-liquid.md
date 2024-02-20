@@ -62,7 +62,7 @@ Returns details about an address. Available fields: `address`, `chain_stats`, an
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/addresses.ts) ] [ [HTML Example](examples/html/liquid/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -83,7 +83,7 @@ Get transaction history for the specified address/scripthash, sorted with newest
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/addresses.ts) ] [ [HTML Example](examples/html/liquid/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -104,7 +104,7 @@ Get confirmed transaction history for the specified address/scripthash, sorted w
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/addresses.ts) ] [ [HTML Example](examples/html/liquid/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -125,7 +125,7 @@ Get unconfirmed transaction history for the specified `address/scripthash`. Retu
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/addresses.ts) ] [ [HTML Example](examples/html/liquid/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -146,7 +146,7 @@ Get the list of unspent transaction outputs associated with the `address/scripth
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/addresses.ts) ] [ [HTML Example](examples/html/liquid/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const { addresses } = mempoolJS();
@@ -163,7 +163,7 @@ Returns information about a Liquid asset.
 
 - {string} asset_id
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/assets.ts) ] [ [HTML Example](examples/html/liquid/assets.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -186,7 +186,7 @@ Returns transactions associated with the specified Liquid asset. For the network
 - {string} asset_id
 - {boolean} is_mempool
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/assets.ts) ] [ [HTML Example](examples/html/liquid/assets.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -209,7 +209,7 @@ Get the current total supply of the specified asset. For the native asset (L-BTC
 - {string} asset_id
 - {boolean} decimal
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/assets.ts) ] [ [HTML Example](examples/html/liquid/assets.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -231,7 +231,7 @@ Returns details about a block. Available fields: `id`, `height`, `version`, `tim
 
 - {string} hash
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/blocks.ts) ] [ [HTML Example](examples/html/liquid/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -252,7 +252,7 @@ Returns the confirmation status of a block. Available fields: `in_best_chain` (b
 
 - {string} hash
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/blocks.ts) ] [ [HTML Example](examples/html/liquid/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -274,7 +274,7 @@ Returns a list of transactions in the block (up to 25 transactions beginning at 
 - {string} hash
 - {number} start_index
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/blocks.ts) ] [ [HTML Example](examples/html/liquid/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -295,7 +295,7 @@ Returns a list of all txids in the block.
 
 - {string} hash
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/blocks.ts) ] [ [HTML Example](examples/html/liquid/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -317,7 +317,7 @@ Returns the transaction at index :index within the specified block.
 - {string} hash
 - {number} index
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/blocks.ts) ] [ [HTML Example](examples/html/liquid/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -338,7 +338,7 @@ Returns the raw block representation in binary.
 
 - {string} hash
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/blocks.ts) ] [ [HTML Example](examples/html/liquid/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -359,7 +359,7 @@ Returns the hash of the block currently at `:height`.
 
 - {number} height
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/blocks.ts) ] [ [HTML Example](examples/html/liquid/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -378,7 +378,7 @@ Returns the 10 newest blocks starting at the tip or at `:start_height` if specif
 
 - {number} start_height
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/blocks.ts) ] [ [HTML Example](examples/html/liquid/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -397,7 +397,7 @@ Returns the 10 newest blocks starting at the tip or at `:start_height` if specif
 
 - {number} start_height
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/blocks.ts) ] [ [HTML Example](examples/html/liquid/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -412,7 +412,7 @@ console.log(blocksTipHeight);
 
 Returns the hash of the last block.
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/blocks.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/blocks.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/blocks.ts) ] [ [HTML Example](examples/html/liquid/blocks.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -427,7 +427,7 @@ console.log(blocksTipHash);
 
 Returns our currently suggested fees for new transactions.
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/fees.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/fees.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/fees.ts) ] [ [HTML Example](examples/html/liquid/fees.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -442,7 +442,7 @@ console.log(feesRecommended);
 
 Returns current mempool as projected blocks.
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/fees.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/fees.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/fees.ts) ] [ [HTML Example](examples/html/liquid/fees.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -457,7 +457,7 @@ console.log(feesMempoolBlocks);
 
 Returns current mempool backlog statistics.
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/mempool.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/mempool.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/mempool.ts) ] [ [HTML Example](examples/html/liquid/mempool.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -472,7 +472,7 @@ console.log(getMempool);
 
 Get a list of the last 10 transactions to enter the mempool. Each transaction object contains simplified overview data, with the following fields: `txid`, `fee`, `vsize`, and `value`.
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/mempool.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/mempool.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/mempool.ts) ] [ [HTML Example](examples/html/liquid/mempool.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -487,7 +487,7 @@ console.log(getMempoolRecent);
 
 Get the full list of txids in the mempool as an array. The order of the `txids` is arbitrary and does not match bitcoind.
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/mempool.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/mempool.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/mempool.ts) ] [ [HTML Example](examples/html/liquid/mempool.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -506,7 +506,7 @@ Returns details about a transaction. Available fields: `txid`, `version`, `lockt
 
 - {string} txid
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/transactions.ts) ] [ [HTML Example](examples/html/liquid/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -527,7 +527,7 @@ Returns the confirmation status of a transaction. Available fields: `confirmed` 
 
 - {string} txid
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/transactions.ts) ] [ [HTML Example](examples/html/liquid/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -548,7 +548,7 @@ Returns a transaction serialized as hex.
 
 - {string} txid
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/transactions.ts) ] [ [HTML Example](examples/html/liquid/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -569,7 +569,7 @@ Returns a transaction as binary data.
 
 - {string} txid
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/transactions.ts) ] [ [HTML Example](examples/html/liquid/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -590,7 +590,7 @@ Returns a merkle inclusion proof for the transaction using bitcoind's merklebloc
 
 - {string} txid
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/transactions.ts) ] [ [HTML Example](examples/html/liquid/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -611,7 +611,7 @@ Returns a merkle inclusion proof for the transaction using Electrum's blockchain
 
 - {string} txid
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/transactions.ts) ] [ [HTML Example](examples/html/liquid/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -633,7 +633,7 @@ Returns the spending status of a transaction output. Available fields: `spent` (
 - {string} txid
 - {number} vout
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/transactions.ts) ] [ [HTML Example](examples/html/liquid/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -657,7 +657,7 @@ Returns the spending status of all transaction outputs.
 
 - {string} txid
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/transactions.ts) ] [ [HTML Example](examples/html/liquid/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -678,7 +678,7 @@ Broadcast a raw transaction to the network. The transaction should be provided a
 
 - {string} txhex
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/transactions.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/transactions.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/transactions.ts) ] [ [HTML Example](examples/html/liquid/transactions.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -697,7 +697,7 @@ Default push: `{ action: 'want', data: ['blocks', ...] }` to express what you wa
 
 Push transactions related to address: `{ 'track-address': '3PbJ...bF9B' }` to receive all new transactions containing that address as input or output. Returns an array of transactions. address-transactions for new mempool transactions, and block-transactions for new block confirmed transactions.
 
-[ [NodeJS Example](examples/nodejs/mempool-js/liquid/websocket.ts) ] [ [HTML Example](examples/html/mempool-js/liquid/websocket.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/websocket.ts) ] [ [HTML Example](examples/html/liquid/websocket.html) ] [ [Top](#features) ]
 
 #### **Websocket Server**
 

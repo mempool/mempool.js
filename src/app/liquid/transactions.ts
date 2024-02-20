@@ -4,10 +4,10 @@ import {
   TxStatus,
   TxMerkleProof,
   TxOutspend,
-  TxInstance,
-} from '../../interfaces/bitcoin/transactions';
+  TxLiquidInstance,
+} from '../../interfaces/liquid/transactions';
 
-export const useTransactions = (api: AxiosInstance): TxInstance => {
+export const useTransactions = (api: AxiosInstance): TxLiquidInstance => {
   const getTx = async (params: { txid: string }) => {
     const { data } = await api.get<Tx>(`/tx/${params.txid}`);
     return data;
@@ -25,13 +25,6 @@ export const useTransactions = (api: AxiosInstance): TxInstance => {
 
   const getTxRaw = async (params: { txid: string }) => {
     const { data } = await api.get<string>(`/tx/${params.txid}/raw`);
-    return data;
-  };
-
-  const getTxMerkleBlockProof = async (params: { txid: string }) => {
-    const { data } = await api.get<string>(
-      `/tx/${params.txid}/merkleblock-proof`
-    );
     return data;
   };
 
@@ -66,7 +59,6 @@ export const useTransactions = (api: AxiosInstance): TxInstance => {
     getTxStatus,
     getTxHex,
     getTxRaw,
-    getTxMerkleBlockProof,
     getTxMerkleProof,
     getTxOutspend,
     getTxOutspends,

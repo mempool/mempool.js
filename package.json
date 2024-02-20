@@ -6,7 +6,6 @@
   "keywords": [
     "axios",
     "bitcoin",
-    "bisq",
     "liquid",
     "mainet",
     "testnet",
@@ -33,8 +32,6 @@
     "dev": "nodemon src/index.ts",
     "build": "tsc",
     "export-mempool-js": "tsc | browserify lib/index.js --standalone mempoolJS > dist/mempool.js | browserify -p tinyify lib/index.js --standalone mempoolJS > dist/mempool.min.js",
-    "export-bisq-js": "tsc | browserify lib/index-bisq.js --standalone bisqJS > dist/bisq.js | browserify -p tinyify lib/index-bisq.js --standalone bisqJS > dist/bisq.min.js",
-    "export-liquid-js": "tsc | browserify lib/index-liquid.js --standalone liquidJS > dist/liquid.js | browserify -p tinyify lib/index-liquid.js --standalone liquidJS > dist/liquid.min.js",
     "prepare": "npm run build",
     "postversion": "git push && git push --tags"
   },

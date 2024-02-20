@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+    <script src="./../../../dist/mempool.js"></script>
+    <script>
+      const init = async () => {
+        try {
+          const {
+            liquid: { transactions },
+          } = mempoolJS( { hostname: 'liquid.network' } );
+          
+          const txid =
+          '064d1dff90cbb6fce81311f9804a737df9e3873bc4717ff6aae068fffab423ab';
+          
+          const tx = await transactions.getTx({ txid });
+          console.log(tx);
+          
+          const txStatus = await transactions.getTxStatus({ txid });
+          console.log(txStatus);
+          
+          const txHex = await transactions.getTxHex({ txid });
+          console.log(txHex);
+          
+          const txRaw = await transactions.getTxRaw({ txid });
+          console.log(txRaw);
+          
+          const txMerkleProof = await transactions.getTxMerkleProof({ txid });
+          console.log(txMerkleProof);
+          
+          const txOutspend = await transactions.getTxOutspend({
+            txid,
+            vout: 3,
+          });
+          console.log(txOutspend);
+          
+          const txOutspends = await transactions.getTxOutspends({ txid });
+          console.log(txOutspends);
+          
+          const postTx = await transactions.postTx({ txhex: txHex });
+          console.log(postTx);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      init();
+    </script>
+  </head>
+  <body></body>
+</html>

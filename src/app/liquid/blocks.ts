@@ -3,7 +3,7 @@ import {
   Block,
   BlockStatus,
   BlockLiquidInstance,
-} from '../../interfaces/liquid/block';
+} from '../../interfaces/liquid/blocks';
 import { Tx } from '../../interfaces/bitcoin/transactions';
 
 export const useBlocks = (api: AxiosInstance): BlockLiquidInstance => {
