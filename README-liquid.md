@@ -163,7 +163,7 @@ Returns information about a Liquid asset.
 
 - {string} asset_id
 
-[ [NodeJS Example](examples/nodejs/liquid/addresses.ts) ] [ [HTML Example](examples/html/liquid/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/assets.ts) ] [ [HTML Example](examples/html/liquid/assets.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -186,7 +186,7 @@ Returns transactions associated with the specified Liquid asset. For the network
 - {string} asset_id
 - {boolean} is_mempool
 
-[ [NodeJS Example](examples/nodejs/liquid/addresses.ts) ] [ [HTML Example](examples/html/liquid/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/assets.ts) ] [ [HTML Example](examples/html/liquid/assets.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -209,7 +209,7 @@ Get the current total supply of the specified asset. For the native asset (L-BTC
 - {string} asset_id
 - {boolean} decimal
 
-[ [NodeJS Example](examples/nodejs/liquid/addresses.ts) ] [ [HTML Example](examples/html/liquid/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/liquid/assets.ts) ] [ [HTML Example](examples/html/liquid/assets.html) ] [ [Top](#features) ]
 
 ```js
 const {

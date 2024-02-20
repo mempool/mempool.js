@@ -35,6 +35,22 @@ Interface to access Bitcoin `mainet`, `testnet`, `signet` APIs.
 - Fees
   - [Get Fees Recommended](#get-fees-recommended)
   - [Get Fees Mempool Blocks](#get-fees-mempool-blocks)
+- Lightning
+  - [Get Network Stats](#get-network-stats)
+  - [Get Nodes In Country](#get-nodes-in-country)
+  - [Get Nodes Stats Per Country](#get-nodes-stats-per-country)
+  - [Get Nodes Hosted by ISP](#get-nodes-hosted-by-isp)
+  - [Get ISP Ranking](#get-isp-ranking)
+  - [Get Liquidity Ranking](#get-liquidity-ranking)
+  - [Get Connectivity Ranking](#get-connectivity-ranking)
+  - [Get Oldest Nodes](#get-oldest-nodes)
+  - [Get Node Stats](#get-node-stats)
+  - [Get Historical Node Stats](#get-historical-node-stats)
+  - [Get Channel](#get-channel)
+  - [Get Channels From Transaction IDs](#get-channels-from-transaction-ids)
+  - [Get Channels From Node Public Key](#get-channels-from-node-public-key)
+  - [Get Channels Geodata](#get-channels-geodata)
+  - [Get Channels Geodata By Public Key](#get-channels-geodata-by-public-key)
 - Mempool
   - [Get Mempool](#get-mempool)
   - [Get Mempool Recent](#get-mempool-recent)
@@ -63,7 +79,7 @@ Returns details about an address. Available fields: `address`, `chain_stats`, an
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/bitcoin/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -84,7 +100,7 @@ Get transaction history for the specified address/scripthash, sorted with newest
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/bitcoin/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -105,7 +121,7 @@ Get confirmed transaction history for the specified address/scripthash, sorted w
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/bitcoin/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -126,7 +142,7 @@ Get unconfirmed transaction history for the specified `address/scripthash`. Retu
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/bitcoin/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const {
@@ -147,7 +163,7 @@ Get the list of unspent transaction outputs associated with the `address/scripth
 
 - {string} address
 
-[ [NodeJS Example](examples/nodejs/mempool-js/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/mempool-js/bitcoin/addresses.html) ] [ [Top](#features) ]
+[ [NodeJS Example](examples/nodejs/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/bitcoin/addresses.html) ] [ [Top](#features) ]
 
 ```js
 const { addresses } = mempoolJS();
@@ -419,6 +435,267 @@ const {
 const feesMempoolBlocks = await fees.getFeesMempoolBlocks();
 console.log(feesMempoolBlocks);
 ```
+
+### **Get Network Stats**
+
+Returns network-wide stats such as total number of channels and nodes, total capacity, and average/median fee figures.
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const networkStats = await lightning.getNetworkStats();
+console.log(networkStats);
+```
+
+### **Get Nodes In Country**
+
+Returns a list of Lightning nodes running on clearnet in the requested `:country`, where `:country` is an ISO Alpha-2 country code.
+
+**Parameters:**
+
+- {string} country
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const nodesInCountry = await lightning.getNodesInCountry({ country: 'US' });
+console.log(nodesInCountry);
+```
+
+### **Get Nodes Stats Per Country**
+
+Returns aggregate capacity and number of clearnet nodes per country. Capacity figures are in satoshis.
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const nodesStatsPerCountry = await lightning.getNodesStatsPerCountry();
+console.log(nodesStatsPerCountry);
+```
+
+### **Get Nodes Hosted by ISP**
+
+Returns a list of nodes hosted by a specified `:isp`, where `:isp` is an ISP's ASN.
+
+**Parameters:**
+
+- {number} isp
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const nodesHostedByISP = await lightning.getNodesHostedByISP({ isp: 16509 });
+console.log(nodesHostedByISP);
+```
+
+### **Get ISP Ranking**
+
+Returns aggregate capacity, number of nodes, and number of channels per ISP. Capacity figures are in satoshis.
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const ispRanking = await lightning.getISPRanking();
+console.log(ispRanking);
+```
+
+### **Get Liquidity Ranking**
+
+Returns a list of the top 100 nodes by liquidity (aggregate channel capacity).
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const liquidityRanking = await lightning.getLiquidityRanking();
+console.log(liquidityRanking);
+```
+
+### **Get Connectivity Ranking**
+
+Returns a list of the top 100 nodes by connectivity (number of open channels).
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const connectivityRanking = await lightning.getConnectivityRanking();
+console.log(connectivityRanking);
+```
+
+### **Get Oldest Nodes**
+
+Returns a list of the top 100 oldest nodes.
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const oldestNodes = await lightning.getOldestNodes();
+console.log(oldestNodes);
+```
+
+### **Get Node Stats**
+
+Returns details about a node with the given `:public_key`.
+
+**Parameters:**
+
+- {string} public_key
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const nodeStats = await lightning.getNodeStats({ public_key });
+console.log(nodeStats);
+```
+
+### **Get Historical Node Stats**
+
+Returns historical stats for a node with the given `:public_key`.
+
+**Parameters:**
+
+- {string} public_key
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const historicalNodeStats = await lightning.getHistoricalNodeStats({ public_key });
+console.log(historicalNodeStats);
+```
+
+### **Get Channel**
+
+Returns details about a channel with the given `:id`.
+
+**Parameters:**
+
+- {string} id
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const channel = await lightning.getChannel({ id });
+console.log(channel);
+```
+
+### **Get Channels From Transaction IDs**
+
+Returns channels that correspond to the given `:txId` (multiple transaction IDs can be specified).
+
+**Parameters:**
+
+- {[]string} txId
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const channelsFromTransactionIDs = await lightning.getChannelsFromTransactionIDs({ txId });
+console.log(channelsFromTransactionIDs);
+```
+
+### **Get Channels From Node Public Key**
+
+Returns a list of a node's channels given its `:public_key`. Ten channels are returned at a time. Use `:index` for paging. `:status` can be `open`, `active`, or `closed`.
+
+**Parameters:**
+
+- {string} public_key
+- {string} status
+- {number} index
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const channelsFromNodePublicKey = await lightning.getChannelsFromNodePublicKey({ public_key, status, index });
+console.log(channelsFromNodePublicKey);
+```
+
+### **Get Channels Geodata**
+
+Returns a list of channels with corresponding node geodata.
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const channelsGeodata = await lightning.getChannelsGeodata();
+console.log(channelsGeodata);
+```
+
+### **Get Channels Geodata By Public Key**
+
+Returns a list of channels with corresponding geodata for a node with the given `:public_key`.
+
+**Parameters:**
+
+- {string} public_key
+
+[ [NodeJS Example](examples/nodejs/bitcoin/lightning.ts) ] [ [HTML Example](examples/html/bitcoin/lightning.html) ] [ [Top](#features) ]
+
+```js
+const {
+  bitcoin: { lightning },
+} = mempoolJS();
+
+const channelsGeodataByPublicKey = await lightning.getChannelsGeodataByPublicKey({ public_key });
+console.log(channelsGeodataByPublicKey);
+```
+
 
 ### **Get Children Pay for Parent**
 
