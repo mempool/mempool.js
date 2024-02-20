@@ -43,7 +43,6 @@ Interface to access Liquid APIs.
   - [Get Tx Status](#get-tx-status)
   - [Get Tx Hex](#get-tx-hex)
   - [Get Tx Raw](#get-tx-raw)
-  - [Get Tx Merkle Block Proof](#get-tx-merkle-block-proof)
   - [Get Tx Merkle Proof](#get-tx-merkle-proof)
   - [Get Tx Outspend](#get-tx-outspend)
   - [Get Tx Outspends](#get-tx-outspends)
@@ -580,27 +579,6 @@ const txid = '15e10745f15593a899cef391191bdd3d7c12412cc4696b7bcb669d0feadc8521';
 
 const txRaw = await transactions.getTxRaw({ txid });
 console.log(txRaw);
-```
-
-### **Get Tx Merkle Block Proof**
-
-Returns a merkle inclusion proof for the transaction using bitcoind's merkleblock format.
-
-**Parameters:**
-
-- {string} txid
-
-[ [NodeJS Example](examples/nodejs/liquid/transactions.ts) ] [ [HTML Example](examples/html/liquid/transactions.html) ] [ [Top](#features) ]
-
-```js
-const {
-  liquid: { transactions },
-} = mempoolJS();
-
-const txid = '15e10745f15593a899cef391191bdd3d7c12412cc4696b7bcb669d0feadc8521';
-
-const txMerkleBlockProof = await transactions.getTxMerkleBlockProof({ txid });
-console.log(txMerkleBlockProof);
 ```
 
 ### **Get Tx Merkle Proof**
