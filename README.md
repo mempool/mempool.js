@@ -37,8 +37,14 @@ const { bitcoin, bisq, liquid } = mempoolJS();
 
 // (optional) your custom endpoints
 const { bitcoin, bisq, liquid } = mempoolJS({
-  hostname: 'mempool.space', 
-  network: 'testnet' // 'signet' | 'testnet' | 'mainnet'
+  protocol: 'https', // optional, defaults to http for localhost, otherwise https
+  hostname: 'mempool.space',
+  network: 'testnet' // 'signet' | 'testnet' | 'mainnet',
+  config: { // optional axios request config to add to requests
+    headers: {
+      authorization: 'Basic auth'
+    }
+  }
 });
 ```
 
@@ -59,7 +65,7 @@ const { bitcoin, bisq, liquid } = mempoolJS();
 // (optional) your custom endpoints
 const { bitcoin, bisq, liquid } = mempoolJS({
   hostname: 'mempool.space',
-  network: 'testnet' // 'signet' | 'testnet' | 'mainnet'
+  network: 'testnet', // 'signet' | 'testnet' | 'mainnet'
 });
 ```
 

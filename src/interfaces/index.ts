@@ -14,9 +14,12 @@ import { MarketsInstance } from './bisq/markets';
 
 import { AssetsInstance } from './liquid/assets';
 import { BlockLiquidInstance } from './liquid/block';
+import { AxiosRequestConfig } from 'axios';
 export interface MempoolConfig {
+  protocol?: 'http' | 'https';
   hostname?: string;
   network?: string;
+  config?: AxiosRequestConfig;
 }
 
 export interface MempoolReturn {
