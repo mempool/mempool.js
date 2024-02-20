@@ -1,4 +1,4 @@
-import mempoolJS from "./../../../../src/index";
+import mempoolJS from "./../../../src/index";
 
 const { bitcoin: { websocket } } = mempoolJS();
 
