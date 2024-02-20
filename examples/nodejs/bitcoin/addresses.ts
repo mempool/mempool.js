@@ -1,12 +1,10 @@
-import mempoolJS from "./../../../../src/index";
+import mempoolJS from "./../../../src/index";
 
 const init = async () => {
   try {
-    const {
-      liquid: { addresses },
-    } = mempoolJS();
+    const { bitcoin: { addresses } } = mempoolJS();
     
-    const address = 'Go65t19hP2FuhBMYtgbdMDgdmEzNwh1i48';
+    const address = '1wizSAYSbuyXbt9d8JV8ytm5acqq2TorC';
     
     const myAddress = await addresses.getAddress({ address });
     console.log(myAddress);
