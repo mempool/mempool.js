@@ -1,6 +1,6 @@
 import WebSocketServer from 'ws';
 
-export interface WsInstance {
+export interface WsLiquidInstance {
   wsInit: () => WebSocketServer;
   wsInitBrowser: () => WebSocket;
   wsWantData: (ws: WebSocketServer, options: string[]) => void;
@@ -19,14 +19,6 @@ export interface WsInstance {
   wsTrackTransactionBrowser: (ws: WebSocket, txid: string) => void;
   wsStopTrackingTransaction: (ws: WebSocketServer) => void;
   wsStopTrackingTransactionBrowser: (ws: WebSocket) => void;
-  wsTrackRbfSummary: (ws: WebSocketServer) => void;
-  wsTrackRbfSummaryBrowser: (ws: WebSocket) => void;
-  wsStopTrackingRbfSummary: (ws: WebSocketServer) => void;
-  wsStopTrackingRbfSummaryBrowser: (ws: WebSocket) => void;
-  wsTrackRbf: (ws: WebSocketServer, fullRbf: boolean) => void;
-  wsTrackRbfBrowser: (ws: WebSocket, fullRbf: boolean) => void;
-  wsStopTrackingRbf: (ws: WebSocketServer) => void;
-  wsStopTrackingRbfBrowser: (ws: WebSocket) => void;
   wsTrackMempoolBlock: (ws: WebSocketServer, index: number) => void;
   wsTrackMempoolBlockBrowser: (ws: WebSocket, index: number) => void;
   wsStopTrackingMempoolBlock: (ws: WebSocketServer) => void;

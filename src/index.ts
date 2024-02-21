@@ -1,8 +1,5 @@
 import { MempoolConfig, MempoolReturn } from './interfaces/index';
-import {
-  makeBitcoinAPI,
-  makeLiquidAPI,
-} from './services/api/index';
+import { makeBitcoinAPI, makeLiquidAPI } from './services/api/index';
 
 import { useAddresses } from './app/bitcoin/addresses';
 import { useBlocks } from './app/bitcoin/blocks';
@@ -54,7 +51,7 @@ const mempool = (
       lightning: useLightning(apiBitcoin),
       mempool: useMempool(apiBitcoin),
       transactions: useTransactions(apiBitcoin),
-      websocket: useWebsocket(hostname, network),
+      websocket: useWebsocket(hostname, network, protocol),
     },
     liquid: {
       addresses: useAddressesLiquid(apiLiquid),
@@ -63,7 +60,7 @@ const mempool = (
       fees: useFeesLiquid(apiLiquid),
       mempool: useMempoolLiquid(apiLiquid),
       transactions: useTransactionsLiquid(apiLiquid),
-      websocket: useWebsocketLiquid(hostname),
+      websocket: useWebsocketLiquid(hostname, network, protocol),
     },
   };
 };

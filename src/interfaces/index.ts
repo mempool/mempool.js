@@ -10,6 +10,7 @@ import { WsInstance } from './bitcoin/websockets';
 import { AssetsInstance } from './liquid/assets';
 import { BlockLiquidInstance } from './liquid/blocks';
 import { TxLiquidInstance } from './liquid/transactions';
+import { WsLiquidInstance } from './liquid/websockets';
 import { AxiosRequestConfig } from 'axios';
 export interface MempoolConfig {
   protocol?: 'http' | 'https';
@@ -36,6 +37,6 @@ export interface MempoolReturn {
     fees: FeeInstance;
     mempool: MempoolInstance;
     transactions: TxLiquidInstance;
-    websocket: WsInstance;
+    websocket: WsLiquidInstance;
   };
 }
