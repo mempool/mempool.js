@@ -33,13 +33,13 @@ export const makeLiquidAPI = ({
   if (!protocol) {
     hostname?.includes('localhost') ? protocol = 'http' : protocol = 'https';
   }
-  if (network && ['testnet', 'signet'].includes(network)) {
-    network = `/${network}`;
+  if (network && ['testnet', 'liquidtestnet'].includes(network)) {
+    network = `/liquidtestnet`;
   } else {
-    network = '';
+    network = '/liquid';
   }
   const api = axios.create({
-    baseURL: `${protocol}://${hostname}/liquid/api/`,
+    baseURL: `${protocol}://${hostname}${network}/api/`,
     ...config,
   });
   return {
