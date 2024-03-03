@@ -1,4 +1,4 @@
-const serverWS = (
+const wsClient = (
   options: string[],
   endpoint: string,
 ): WebSocket => {
@@ -21,5 +21,5 @@ const sleep = (ms: number) => {
   });
 };
 
-export default serverWS;
+export default wsClient;
 
