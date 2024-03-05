@@ -2,8 +2,9 @@ import mempoolJS from "./../../../src/index";
 
 const init = async () => {
   try {
-
-    const { bitcoin: { websocket } } = mempoolJS({hostname: 'localhost:4200'});
+    const {
+      bitcoin: { websocket },
+    } = mempoolJS();
     
     const ws = websocket.wsInit();
 
