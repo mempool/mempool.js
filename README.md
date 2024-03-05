@@ -45,6 +45,13 @@ const { bitcoin } = mempoolJS({
     }
   }
 });
+
+// Liquid API
+const { liquid } = mempoolJS({
+  protocol: 'https', // optional, defaults to http for localhost, otherwise https
+  hostname: 'liquid.network',
+  network: 'liquid' // 'liquid' | 'liquidtestnet'
+});
 ```
 
 ### **CommonJS**
@@ -59,12 +66,20 @@ Call `mempoolJS()` function to access the API methods.
 
 ```js
 // default mempool.space endpoints
-const { bitcoin, liquid } = mempoolJS();
+const { bitcoin } = mempoolJS();
 
 // (optional) your custom endpoints
 const { bitcoin } = mempoolJS({
+  protocol: 'https', // optional, defaults to http for localhost, otherwise https
   hostname: 'mempool.space',
   network: 'testnet', // 'signet' | 'testnet' | 'mainnet'
+});
+
+// Liquid API
+const { liquid } = mempoolJS({
+  protocol: 'https', // optional, defaults to http for localhost, otherwise https
+  hostname: 'liquid.network',
+  network: 'liquid' // 'liquid' | 'liquidtestnet'
 });
 ```
 
@@ -80,8 +95,7 @@ const { bitcoin } = mempoolJS({
   - [Lightning](./README-bitcoin.md#get-network-stats)
   - [Mempool](./README-bitcoin.md#get-mempool)
   - [Transactions](./README-bitcoin.md#get-transactions)
-  - [Websocket Client](./README-bitcoin.md#Websocket-Client)
-  - [Websocket Server](./README-bitcoin.md#Websocket-Server)
+  - [Websocket](./README-bitcoin.md#init-websocket)
 - [Liquid](./README-liquid.md#get-address)
   - [Addresses](./README-liquid.md#get-address)
   - [Assets](./README-liquid.md#get-address)
@@ -89,8 +103,7 @@ const { bitcoin } = mempoolJS({
   - [Fees](./README-liquid.md#get-address)
   - [Mempool](./README-liquid.md#get-address)
   - [Transactions](./README-liquid.md#get-address)
-  - [Websocket Client](./README-liquid.md#Websocket-Client)
-  - [Websocket Server](./README-liquid.md#Websocket-Server)
+  - [Websocket](./README-liquid.md#init-websocket)
 
 ---
 

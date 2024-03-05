@@ -9,26 +9,39 @@
           const {
             bitcoin: { websocket },
           } = mempoolJS();
-          
-          const ws = websocket.initClient({
-            options: ['blocks', 'stats', 'mempool-blocks', 'live-2h-chart'],
-          });
-          
+
+          const ws = websocket.wsInitBrowser();
+
           ws.addEventListener('message', function incoming({data}) {
-            const res = JSON.parse(data.toString());
-            if (res.block) {
-              console.log(res.block);
-            }
-            if (res.mempoolInfo) {
-              console.log(res.mempoolInfo);
-            }
-            if (res.transactions) {
-              console.log(res.transactions);
-            }
-            if (res.mempoolBlocks) {
-              console.log(res.mempoolBlocks);
-            }
+            console.log(JSON.parse(data.toString()));
           });
+
+          websocket.wsWantDataBrowser(ws, ['blocks', 'stats', 'mempool-blocks', 'live-2h-chart']);
+
+          websocket.wsTrackAddressBrowser(ws, "1wizSAYSbuyXbt9d8JV8ytm5acqq2TorC");
+
+          websocket.wsTrackAddressesBrowser(ws, [
+            "1wizSAYSbuyXbt9d8JV8ytm5acqq2TorC",
+          ]);
+
+          websocket.wsTrackTransactionBrowser(ws, "01313ca0148a1bbe5676e5dd6a84e76f8b39038658bd8c333d3b2d3f7ea6dd08");
+
+          websocket.wsTrackRbfSummaryBrowser(ws);
+
+          websocket.wsTrackRbfBrowser(ws, true);
+
+          websocket.wsTrackMempoolBlockBrowser(ws, 1);
+
+          setTimeout(() => {
+            websocket.wsStopDataBrowser(ws);
+            websocket.wsStopTrackingAddressBrowser(ws);
+            websocket.wsStopTrackingAddressesBrowser(ws);
+            websocket.wsStopTrackingTransactionBrowser(ws);
+            websocket.wsStopTrackingRbfSummaryBrowser(ws);
+            websocket.wsStopTrackingRbfBrowser(ws);
+            websocket.wsStopTrackingMempoolBlockBrowser(ws);
+          }, 60000);
+
         } catch (error) {
           console.log(error);
         }
