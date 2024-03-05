@@ -12,7 +12,11 @@ export const useAddresses = (api: AxiosInstance): AddressInstance => {
     return data;
   };
 
-  const getAddressTxs = async (params: { address: string }) => {
+  const getAddressTxs = async (params: { address: string, after_txid?: string }) => {
+    if (params.after_txid) {
+      const { data } = await api.get<Tx[]>(`/address/${params.address}/txs?after_txid=${params.after_txid}`);
+      return data;
+    }
     const { data } = await api.get<Tx[]>(`/address/${params.address}/txs`);
     return data;
   };
