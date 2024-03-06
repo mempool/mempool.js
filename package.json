@@ -31,7 +31,7 @@
     "start": "ts-node src/index.ts",
     "dev": "nodemon src/index.ts",
     "build": "tsc",
-    "export-mempool-js": "tsc | browserify lib/index.js --standalone mempoolJS > dist/mempool.js | browserify -p tinyify lib/index.js --standalone mempoolJS > dist/mempool.min.js",
+    "export-mempool-js": "tsc | browserify -p esmify lib/index.js --standalone mempoolJS > dist/mempool.js | browserify -p tinyify -p esmify lib/index.js --standalone mempoolJS > dist/mempool.min.js",
     "prepare": "npm run build",
     "postversion": "git push && git push --tags"
   },
@@ -39,7 +39,7 @@
     "lib/**/*"
   ],
   "dependencies": {
-    "axios": "0.24.0",
+    "axios": "1.6.7",
     "ws": "8.3.0"
   },
   "devDependencies": {
@@ -50,6 +50,7 @@
     "@typescript-eslint/parser": "^4.14.2",
     "browserify": "^17.0.0",
     "eslint": "^7.19.0",
+    "esmify": "^2.1.1",
     "nodemon": "^2.0.7",
     "tinyify": "^3.0.0",
     "ts-node": "^9.1.1",
