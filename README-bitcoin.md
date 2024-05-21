@@ -180,9 +180,13 @@ Get the list of unspent transaction outputs associated with the `address/scripth
 [ [NodeJS Example](examples/nodejs/bitcoin/addresses.ts) ] [ [HTML Example](examples/html/bitcoin/addresses.html) ] [ [Top](#features) ]
 
 ```js
-const { addresses } = mempoolJS();
+const {
+  bitcoin: { addresses },
+} = mempoolJS();
 
-const addressTxsUtxo = await addresses.getAddressTxsUtxo('15e10745f15593a...');
+const address = '1wizSAYSbuyXbt9d8JV8ytm5acqq2TorC';
+
+const addressTxsUtxo = await addresses.getAddressTxsUtxo({ address });
 console.log(addressTxsUtxo);
 ```
 

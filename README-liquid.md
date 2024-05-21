@@ -157,9 +157,13 @@ Get the list of unspent transaction outputs associated with the `address/scripth
 [ [NodeJS Example](examples/nodejs/liquid/addresses.ts) ] [ [HTML Example](examples/html/liquid/addresses.html) ] [ [Top](#features) ]
 
 ```js
-const { addresses } = mempoolJS();
+const {
+  liquid: { addresses },
+} = mempoolJS();
 
-const addressTxsUtxo = await addresses.getAddressTxsUtxo('15e10745f15593a...');
+const address = 'Go65t19hP2FuhBMYtgbdMDgdmEzNwh1i48';
+
+const addressTxsUtxo = await addresses.getAddressTxsUtxo({ address });
 console.log(addressTxsUtxo);
 ```
 
