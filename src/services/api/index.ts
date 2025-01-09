@@ -10,7 +10,7 @@ export const makeBitcoinAPI = ({
   if (!protocol) {
     hostname?.includes('localhost') ? protocol = 'http' : protocol = 'https';
   }
-  if (network && ['testnet', 'signet'].includes(network)) {
+  if (network && ['testnet', 'testnet4', 'signet'].includes(network)) {
     network = `/${network}`;
   } else {
     network = '';

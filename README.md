@@ -38,7 +38,7 @@ import mempoolJS from '@mempool/mempool.js';
 const { bitcoin } = mempoolJS({
   protocol: 'https', // optional, defaults to http for localhost, otherwise https
   hostname: 'mempool.space',
-  network: 'testnet' // 'signet' | 'testnet' | 'mainnet',
+  network: 'testnet4', // 'signet' | 'testnet' | 'testnet4' | 'mainnet',
   config: { // optional axios request config to add to requests
     headers: {
       authorization: 'Basic auth'
