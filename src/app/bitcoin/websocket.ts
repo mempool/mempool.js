@@ -44,7 +44,7 @@ export const useWebsocket = (hostname: string, network: string, protocol: string
   } else {
     protocol = 'wss';
   }
-  if (network && ['testnet', 'signet'].includes(network)) {
+  if (network && ['testnet', 'testnet4', 'signet'].includes(network)) {
     network = `/${network}`;
   } else {
     network = '';
