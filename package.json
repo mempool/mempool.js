@@ -40,7 +40,7 @@
     "lib/**/*"
   ],
   "dependencies": {
-    "axios": "1.13.2",
+    "axios": "1.20.0",
     "ws": "^8.18.3"
   },
   "devDependencies": {
