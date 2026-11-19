@@ -1,6 +1,6 @@
 # mempool**JS** - Bitcoin API
 
-Interface to access Bitcoin `mainet`, `testnet`, `testnet4`, `signet` APIs.
+Interface to access Bitcoin `mainet`, `testnet`, `testnet4`, `testnet5`, `signet` APIs.
 
 [Back to home](./README.md)
 
